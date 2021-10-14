@@ -7,7 +7,7 @@
 # <https://github.com/KFERMercer/OpenWrt-CI>
 #
 
-name: kung10.13
+name: kung10.14
 
 on:
   push:
@@ -147,6 +147,13 @@ jobs:
           CONFIG_PACKAGE_kmod-usb2-pci=y
           CONFIG_PACKAGE_kmod-usb3=y
           EOF
+          
+          # 驱动支持:
+          cat >> .config <<EOF
+          CONFIG_PACKAGE_kmod-8139cp=y
+          CONFIG_PACKAGE_kmod-8139too=y
+          CONFIG_PACKAGE_kmod-usb-net-asix-ax88179=y
+          EOF
 
           # 常用LuCI插件选择:
           cat >> .config <<EOF
@@ -177,6 +184,7 @@ jobs:
           CONFIG_PACKAGE_luci-app-serverchan=y
           CONFIG_PACKAGE_luci-app-passwall=y
           CONFIG_PACKAGE_luci-app-jd-dailybonus=y
+          CONFIG_PACKAGE_luci-app-filetransfer=y
           EOF
 
           # LuCI主题:
