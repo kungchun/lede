@@ -192,6 +192,10 @@ jobs:
           CONFIG_PACKAGE_luci-app-autotimeset=y
           CONFIG_PACKAGE_luci-app-poweroff=y
           CONFIG_PACKAGE_luci-app-NetSpeedTest=y
+          CONFIG_PACKAGE_luci-app-passwall=y
+          CONFIG_PACKAGE_luci-app-passwall_INCLUDE_Xray=y
+          CONFIG_PACKAGE_luci-app-aliyundrive-webdav=y
+          CONFIG_PACKAGE_luci-app-baidupcs-web=y
           EOF
 
           # LuCI主题:
