@@ -7,7 +7,7 @@
 # <https://github.com/KFERMercer/OpenWrt-CI>
 #
 
-name: kung10.29
+name: kung11.2
 
 on:
   push:
@@ -65,7 +65,7 @@ jobs:
           git clone https://github.com/jerrykuku/lua-maxminddb.git
           git clone https://github.com/jerrykuku/luci-app-vssr.git
           git clone https://github.com/sirpdboy/luci-app-autotimeset.git
-          git clone https://github.com/sirpdboy/NetSpeedTest.git
+          git clone https://github.com/sirpdboy/netspeedtest.git
           
       - name: Update feeds
         run: |
@@ -212,6 +212,12 @@ jobs:
           CONFIG_PACKAGE_tree=y
           CONFIG_PACKAGE_vim-fuller=y
           CONFIG_PACKAGE_wget=y
+          EOF
+          
+          # 设置固件大小:
+          cat >> .config <<EOF
+          CONFIG_TARGET_KERNEL_PARTSIZE=400
+          CONFIG_TARGET_ROOTFS_PARTSIZE=1000
           EOF
 
           # 取消编译VMware镜像以及镜像填充 (不要删除被缩进的注释符号):
